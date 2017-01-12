@@ -1,4 +1,4 @@
-# Common - Template
+# Common - Issue
 ## v0.1.0
 
-Template for all the common CPT plugins I have to make.
+This is an Issue Custom Post Type to be used with The Florida Review CAH website.
