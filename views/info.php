@@ -4,7 +4,7 @@
 	<br>
 
 	<label>Theme</label>
-	<input type="text" name="theme" value="<?php echo $custom['theme'][0]; ?>">
+	<input type="text" name="theme" value="<?php echo $custom['theme'][0]; ?>" style="width: 300px;">
 	<br>
 
 	<label>Publication Date</label>
