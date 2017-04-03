@@ -29,6 +29,7 @@ function issue_create_type() {
 	      'label' => 'Issues',
 	        'public' => true,
 	        'show_ui' => true,
+            'menu_position' => 5,
 	        'capability_type' => 'post',
 	        'hierarchical' => false,
 	        'rewrite' => array('slug' => 'issue'),
@@ -59,7 +60,7 @@ function issue_meta_info() {
 	global $post; // Get global WP post var
     $custom = get_post_custom($post->ID); // Set our custom values to an array in the global post var
 
-    // Form markup 
+    // Form markup
     include_once('views/info.php');
 }
 
