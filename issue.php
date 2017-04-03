@@ -37,6 +37,7 @@ function issue_create_type() {
 	        'query_var' => true,
 	        'supports' => array(
 	            'title',
+	            'editor',
 	            'excerpt',
 	            'thumbnail')
 	    );
@@ -52,7 +53,6 @@ function issue_init() {
 
 	add_meta_box("issue-editorial-meta", "Editorial Information", "issue_meta_editorial", "issue", "normal", "high");
 
-	add_meta_box("issue-body-meta", "Body", "issue_meta_body", "issue", "normal", "high");
 }
 
 // Meta box functions
@@ -74,16 +74,6 @@ function issue_meta_editorial() {
 
 }
 
-// Body
-function issue_meta_body() {
-	global $post; // Get global WP post var
-	global $settings;
-    $custom = get_post_custom($post->ID); // Set our custom values to an array in the global post var
-
-    wp_editor($custom['body'][0], 'body', $settings['md']);
-
-}
-
 // Save our variables
 function issue_save() {
 	global $post;
@@ -98,7 +88,6 @@ function issue_save() {
 	update_post_meta($post->ID, "issn", $_POST["issn"]);
 	update_post_meta($post->ID, "pur-url", $_POST["pur-url"]);
 	update_post_meta($post->ID, "editorial", $_POST["editorial"]);
-	update_post_meta($post->ID, "body", $_POST["body"]);
 
 
 }
