@@ -8,7 +8,7 @@
 	<br>
 
 	<label>Publication Date</label>
-	<input type="date" name="pub-date" value="<?php echo $custom['pub-date'][0]; ?>">
+	<input type="date" name="pub-date" value="<?php echo $pub_str; ?>">
 	<br>
 
 	<label>Cover Date</label>

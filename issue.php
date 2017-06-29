@@ -60,6 +60,17 @@ function issue_meta_info() {
 	global $post; // Get global WP post var
     $custom = get_post_custom($post->ID); // Set our custom values to an array in the global post var
 
+    $pub_date = maybe_unserialize( $custom['pub-date'][0] );
+
+    if ( $pub_date instanceof DateTime) {
+
+        $pub_str = date_format( $pub_date, 'Y-m-d' );
+
+    } else {
+
+        $pub_str = $pub_date;
+    }
+
     // Form markup
     include_once('views/info.php');
 }
@@ -80,7 +91,10 @@ function issue_save() {
 
 	update_post_meta($post->ID, "journal-title", $_POST["journal-title"]);
 	update_post_meta($post->ID, "theme", $_POST["theme"]);
-	update_post_meta($post->ID, "pub-date", $_POST["pub-date"]);
+
+    $pub_date = date_create( $_POST['pub-date'] );
+    update_post_meta( $post->ID, 'pub-date', $pub_date );
+
 	update_post_meta($post->ID, "cov-date", $_POST["cov-date"]);
 	update_post_meta($post->ID, "vol-num", $_POST["vol-num"]);
 	update_post_meta($post->ID, "issue-num", $_POST["issue-num"]);
